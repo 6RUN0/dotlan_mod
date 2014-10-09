@@ -105,6 +105,9 @@ class Dotlan
         if ($region_id) {
             $menubox->addOption('link', 'Region', "${dotlan}/map/${region_id}");
         }
+        if (isset($_SERVER['HTTP_EVE_SOLARSYSTEMID'])) {
+            $menubox->addOption('link', 'Show roure', "${dotlan}/route/${_SERVER['HTTP_EVE_SOLARSYSTEMID']}:${system_id}");
+        }
         return $menubox->generate();
     }
 }
